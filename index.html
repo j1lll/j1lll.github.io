@@ -11,163 +11,97 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/range-input.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
   <link rel="manifest" href="/manifest.json" />
-  <title>Quick photo Editor | Edit your photo Quickly</title>
+  <title>GENE</title>
 </head>
 
 <body>
-  <div id="banner">
-    <div class="logo">
-      <img src="./assets/logo/logo_gif.gif" alt="logo" width="100px" />
-    </div>
-    <div class="download-button">
-      <button class="download" class="download-img">
-        <a href="#" class="save-now" id="save-now">
-          <span class="Download"><img src="./assets/svg/download.svg" alt="download-icon" /></span>
-          Download</a>
-      </button>
-    </div>
-  </div>
   <div id="left">
-    <div id="tools">
-      <div id="tool">
-        <h4>Tools</h4>
-        <button id="crop-button" class="action-tool" title="Crop">
-          <i class="fas fa-crop"></i>
-        </button>
-        <button class="action-tool" title="LightBulb">
-          <i class="fas fa-lightbulb"></i>
-        </button>
+    <H4>MATH IS THE BUILDING BLOCK OF LIFE</H4>
+    <p id="grey-text">
+      Linear algebra is employed in the greyscaling process of photo editing programs, particularly when the RGB values are averaged. To convert a color image to grayscale, each pixel's RGB values are averaged, resulting in a single grayscale intensity value. This averaging operation can be implemented using matrix operations. The image matrix, representing the RGB values, is multiplied by a conversion matrix that contains equal weights (1/3) for each color channel. This matrix multiplication performs the element-wise multiplication and accumulation necessary to compute the grayscale intensity values. The resulting matrix represents the greyscaled image, where each element corresponds to the averaged intensity value of the corresponding pixel in the original image. Linear algebra provides a concise and efficient way to perform this calculation, simplifying the greyscaling process in photo editing software.
+    </p>
 
-        <button class="action-tool" title="Eyedropper">
-          <i class="fas fa-eye-dropper"></i>
-        </button>
+    <p id="sepia-text">   
+      The sepia filter is a popular effect used in photo editing to give images a nostalgic or vintage appearance, mimicking the tone and feel of old-fashioned photographs. It adds a warm, brownish tint to the image, reminiscent of aged or sepia-toned prints.
+      The sepia filter is typically applied by modifying the color values of the image, transforming the original RGB (Red, Green, Blue) color space. The exact algorithm for the sepia filter can vary, but a common approach involves adjusting the color channels to achieve the desired effect.
+      To create a sepia filter, the red, green, and blue color values of each pixel are transformed. The red channel is increased, while the green and blue channels are decreased, resulting in a shift towards warm, brown tones. This adjustment is typically done using linear algebra operations, such as matrix multiplication and addition.
+      By applying the sepia filter matrix to the image matrix, the color values of each pixel are transformed according to the desired algorithm. The resulting image has a sepia-toned appearance, evoking a nostalgic or vintage aesthetic.
+    </p>
 
-        <button class="action-tool" title="Icicles">
-          <i class="fas fa-icicles"></i>
-        </button>
+    <p id="lark-text">
+      The Lark filter is a photo editing effect that imparts a soft, dreamy, and slightly desaturated look to images. Linear algebra is used to apply the Lark filter to photos by performing mathematical transformations on the pixel data. These transformations involve operations like brightness adjustment, RGB channel modification, and saturation changes. By using linear algebra techniques such as matrix multiplication, addition, and scaling, the color values of the image pixels are modified accordingly. These operations are applied to the image matrix, resulting in the desired visual effect of the Lark filter. Linear algebra provides a mathematical framework to efficiently and accurately apply the filter, allowing photo editing software to enhance images with a soft and muted appearance.
+    </p>
 
-        <button class="action-tool" onclick="rotate()" title="Rotate">
-          <i class="fas fa-rotate"></i>
-        </button>
-      </div>
-      <div id="exposure">
-        <h5>Exposure</h5>
-        <div class="exposure-box">
-          <input style="background-color:transparent;" class="styled-slider slider-progress" type="range" id="range"
-            min="0" max="200" />
-        </div>
-      </div>
-      <div class="saturate-slider">
-        <h5>Saturation</h5>
-        <div class="val" id="saturate"></div>
-        <input class="styled-slider slider-progress" id="saturate-slider" type="range" min="0" max="200" value="100">
-      </div>
-      <div class="hue-slider">
-        <h5>Hue Rotate</h5>
-        <div class="val" id="hue"></div>
-        <input class="styled-slider slider-progress" id="hue-slider" type="range" min="0" max="360" value="0">
-      </div>
-      <div class="blur-slider">
-        <h5>Blur</h5>
-        <div class="val" id="blur"></div>
-        <input class="styled-slider slider-progress" id="blur-slider" type="range" min="0" max="20" value="0">
-      </div>
-      <div class="opacity-slider">
-        <h5>Opacity</h5>
-        <div class="val" id="opacity"></div>
-        <input class="styled-slider slider-progress" id="opacity-slider" type="range" min="0" max="100" value="0">
-      </div>
-      <div id="resize">
-        <h5>Resize</h5>
-        <div id="resize-button" class="resize">
-          <div class="dropup-content">
-            <div class="dimensions">
-              <div class="input">
-                <input type="text" id="input_width" class="resizer__input--width"
-                  style="background-color: rgb(211, 211, 163);width: 50px;height: 125%;" value="0" />
-                <span>x</span>
-                <input type="text" id="input_height" class="resizer__input--height"
-                  style="background-color: rgb(211, 211, 163); width: 50px;height: 125%;" value="0" />
-              </div>
-              <div class="aspect">
-                <label>
-                  <input type="checkbox" id="check_aspect-ratio" class="resizer__aspect" checked />
-                  <span>&nbsp;Keep Aspect Ratio</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <p id="flip-text">
+      Linear algebra is utilized in flipping the colors of photos by manipulating the pixel data through matrix operations. When flipping colors, linear algebra helps interchange or invert the color channels of the image, such as the red, green, and blue channels.
+      To achieve color flipping, the image is represented as a matrix of pixels, with each pixel containing color information in the form of RGB values. Linear algebra operations, like matrix multiplication and addition, are applied to transform the pixel values.
+      In the case of color flipping, a transformation matrix is created that swaps or inverts the color channels. By multiplying the original image matrix with this transformation matrix, the color values of each pixel are modified accordingly. The resulting matrix represents the flipped color image.
+      For example, to invert the colors, a transformation matrix can be defined with negative coefficients for each color channel. By multiplying this matrix with the image matrix, the colors are effectively inverted.
+    </p>
+
+
+    <p id="crumble-text">
+      Crumbling, or fractal noise generation, is a technique in photo editing that adds texture and visual interest to an image. Linear algebra is involved in this process to create the crumbling effect by introducing random variations to the image.
+      To achieve crumbling, a random noise matrix is generated, typically consisting of values within a specific range. This noise matrix represents the random variations that will be added to the image. Both the image matrix and the noise matrix have the same dimensions.
+      Linear algebra comes into play by performing matrix addition. Each element of the noise matrix is added to the corresponding element in the image matrix using matrix addition. This operation combines the random variations from the noise matrix with the original image, creating a new matrix that incorporates the crumbling effect.
+      The use of matrix addition allows the random variations to be seamlessly integrated into the image, enhancing its visual appearance. By adjusting the properties of the noise matrix, such as the range of values or the pattern of randomness, different levels of crumbling effects can be achieved.
+    </p>
+
+    <p id="blur-text">
+      Blurring involves manipulating pixel values to reduce sharpness and create a smoother appearance of an image. Matrices are used to achieve this effect. Blurring is a convolution operation where each pixel is combined with its neighboring pixels. This combination is performed by applying a kernel matrix to the image. The kernel matrix contains weights that determine the contribution of each pixel to the blurred result. Linear algebra enables efficient computation of the convolution process. Matrix multiplication and summation operations are utilized to apply the kernel to the image. The matrix operations aggregate pixel values, considering their respective weights, to generate the new blurred pixel values. By carefully designing the kernel matrix, different blurring effects can be achieved. Here, we are using a simple box blur that assigns equal weights to all neighboring pixels, resulting in a uniform blurring effect. Other types of blurs, such as Gaussian blur, use kernel matrices that follow specific mathematical distributions to create a smoother, cleaner blur.
+    </p>
+  </div> 
+
   <div id="middle">
     <div class="canvas">
       <canvas class="img-box" id="img-box"> </canvas>
       <div class="uploaded-img-container">
-        <i class="fas fa-cloud-upload-alt"></i>
-        <p>No file uploaded, yet!</p>
+        <p class="select">select a photo</p>
+      </div>
+
+      <!-- Thumbnail photos -->
+      <div class=thumbnails>
+        <button class="photo-button">
+          <img class="thumbnail-image" src="/assets/images/logo.JPG" alt="Thumbnail 1">
+        </button>
+        <button class="photo-button">
+          <img class="thumbnail-image" src="/assets/images/gambling_gene.webp" alt="Thumbnail 2">
+        </button>
+        <button class="photo-button">
+          <img class="thumbnail-image" src="/assets/images/lecture_gene.jpeg" alt="Thumbnail 3">
+        </button>
+      </div>
+
+      <div id="dos">
+       
+        <!-- <div id="Clear"> -->
+        <button class="Clear" onclick="applyFilter('remove')">
+          <input type="file" id="input-field" accept="image/png, image/jpeg" hidden />
+          <i id="delete" id="close-btn"
+              class="fas fa-close"></i></i><span>&nbsp; Clear</span></a>
+        </button>
+        <!-- </div> -->
+        
       </div>
     </div>
-    <div id="upload">
-      <button class="upload-img">
-        <input type="file" id="input-field" accept="image/png, image/jpeg" hidden />
-        <a href="#" id="upload" class="upload" onclick="uploadbtnActive()"><i
-            class="fas fa-upload"style="margin:5px;;" ></i><span>Upload</span></a>
-      </button>
+
+    
+  
+      </div>
     </div>
-    <div id="dos">
-      <button class="action-tool undo" onclick="unDo()">
-        <i id="undo-btn" class="fas fa-undo disabled"></i>
-        <p>Undo</p>
-      </button>
-      <!-- <div id="Clear"> -->
-      <button class="Clear" onclick="applyFilter('remove')">
-        <input type="file" id="input-field" accept="image/png, image/jpeg" hidden />
-        <a href="#" id="upload" class="upload" onclick="uploadbtnActive()"> <i id="delete" id="close-btn"
-            class="fas fa-close"></i></i><span>&nbsp; Clear</span></a>
-      </button>
-      <!-- </div> -->
-      <button class="action-tool redo" onclick="reDo()">
-        <i id="redo-btn" class="fas fa-redo disabled"></i>
-        <p>Redo</p>
-      </button>
-    </div>
+ 
   </div>
   <div id="right">
     <div id="tools">
-      <h4>Filter</h4>
-      <button class="action-tool">
-        <div id="grey-scale" onclick="applyFilter('grey')">GreyScale</div>
-      </button>
-      <button class="action-tool">
-        <div id="sepia" onclick="applyFilter('sepia')">Sepia</div>
-      </button>
-      <button class="action-tool">
-        <div id="amaro" onclick="applyFilter('amaro')">Amaro</div>
-      </button>
-      <button class="action-tool">
-        <div id="lark" onclick="applyFilter('lark')">Lark</div>
-      </button>
-      <button class="action-tool">
-        <div id="flip" onclick="applyFilter('flip')">Flip</div>
-      </button>
-      <button class="action-tool">
-        <div id="rainbow" onclick="applyFilter('rainbow')">Rainbow</div>
-      </button>
-      <button class="action-tool">
-        <div id="crumble" onclick="applyFilter('crumble')">Crumble</div>
-      </button>
-      <button class="action-tool">
-        <div id="sunset" onclick="applyFilter('sunset')">Sunset</div>
-      </button>
-      <button class="action-tool">
-        <div id="prison" onclick="applyFilter('prison')">Prison</div>
-      </button>
+      <h4>FILTERS</h4>
+      <button id="grey-scale" class="filter-button" data="grey">grey</button>
+      <button id="sepia" class="filter-button" data="sepia">sepia</button>
+      <button id="lark" class="filter-button" data="lark">lark</button>
+      <button id="flip" class="filter-button" data="flip">flip</button>
+      <button id="crumble" class="filter-button" data="crumble">crumble</button>
+      <button id="blur" class="filter-button" data="blur">blur</button>
+      
     </div>
   </div>
   <script src="./js/app.js"></script>
