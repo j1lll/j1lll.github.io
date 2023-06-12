@@ -91,6 +91,7 @@ function applyFilter(filter){
             break;
         default:
             hideAllParagraphs();
+            showParagraph("all-text");
             remove();
             
     }
