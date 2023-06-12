@@ -32,8 +32,6 @@ const changeControl = {
     nextImage: null,
 };
 
-
-// Remove image btn click
 function remove()
 {
     flag=true;
@@ -98,9 +96,6 @@ function applyFilter(filter){
     changeControl.currentImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
 }
 
-//global variable 
-var uploaded_img = "";
-
 //Simple algorithm to convert image to GreyScale
 function doGreyScale(){
     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -151,35 +146,37 @@ function doFlip(){
     ctx.putImageData(imageData, 0, 0);
 }
 
-//sunset filter
-function doSunset(){
+function doCrumble() {
     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     var data = imageData.data;
-    for(let i=0;i<data.length;i+=4){
-        data[i]=255;
+  
+    var noiseMatrix = generateNoiseMatrix(canvas.width, canvas.height);
+  
+    // Apply crumbling effect by adding noise matrix to image matrix
+    for (let i = 0; i < data.length; i += 4) {
+      const noiseIndex = i / 4;
+      const noiseValue = noiseMatrix[noiseIndex];
+  
+      data[i] += noiseValue;
+      data[i + 1] += noiseValue;
+      data[i + 2] += noiseValue;
     }
+  
     ctx.putImageData(imageData, 0, 0);
-
-}
-
-
-
-//crumble filter
-function doCrumble(){
-    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var data = imageData.data;
-    for(let i=0;i<data.length;i+=4){
-        var ran=Math.random();
-        if(ran>0.5){
-            var p=i+1;
-            data[p]=data[i];
-            data[p+1]=data[i+1];
-            data[p+2]=data[i+2];
-
-        }
+  }
+  
+  // Generate a random noise matrix
+  function generateNoiseMatrix(width, height) {
+    var noiseMatrix = [];
+  
+    for (let i = 0; i < width * height; i++) {
+      const noiseValue = Math.random() * 50;  // Adjust the range of noise values as desired
+      noiseMatrix.push(noiseValue);
     }
-    ctx.putImageData(imageData, 0, 0);
-}
+  
+    return noiseMatrix;
+  }
+  
 
 // Define the blur matrix
 const blurMatrix = [
