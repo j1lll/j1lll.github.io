@@ -18,6 +18,31 @@
 <body>
   <div id="left">
     <H4>MATH IS THE BUILDING BLOCK OF LIFE</H4>
+      <i id = "overview">
+      Photo editing and photo storage is directly linked to linear algebra since images can be represented as matrices of pixels. Each pixel has an RGB value that is represented by a vector with an entry for each of the pixel's red, green, blue, and alpha (transparency) values. This webapp allows users to select one of three different photos to be displayed in the center of the page. This selection transfers the image data onto the canvas. From there, users can add filters to the image by clicking the buttons that are on the right side of the screen. When a filter is clicked, information regarding the link between the changes appearing on the canvas and linear algebra show up on the left side of the screen. 
+      </i>
+    <p id="all-text">
+      
+      <br>
+      <strong>
+        Grey Scale
+      </strong>
+      - the function performs a basic linear transformation on the pixel data array to convert the image to grayscale by setting the red, green, and blue components of each pixel to the average intensity.
+      <br><br>
+      <strong>Sepia / Lark</strong>
+      - these functions apply scalar multiplication and addition to each pixel vector in the image's matrix of pixels in order to acheive the desired effect on the photo.
+      <br><br>
+      <strong>Flip</strong>
+      - this filter flips the RGB values of each pixel, setting the new red value to the green value, the new green value to the blue value, and the new blue value to the red value
+      - this is an example of performing a permutation operation on the color vectors since the colors' corresponding rows are being swapped around
+      <br><br>
+      <strong>Crumble</strong>
+      - crumble utilizes matrix addition to effectively add a 'noise matrix' to each RGB value of each pixel of the image (conceptually, another matrix)
+      <br><br>
+      <strong>Blur</strong>
+      -  the blur filter applies a convolution operation using a box blur matrix to compute the weighted sum of neighboring pixels, editing the image to have the blurred effect
+    </p>
+
     <p id="grey-text">
       Linear algebra is employed in the greyscaling process of photo editing programs, particularly when the RGB values are averaged. To convert a color image to grayscale, each pixel's RGB values are averaged, resulting in a single grayscale intensity value. This averaging operation can be implemented using matrix operations. The image matrix, representing the RGB values, is multiplied by a conversion matrix that contains equal weights (1/3) for each color channel. This matrix multiplication performs the element-wise multiplication and accumulation necessary to compute the grayscale intensity values. The resulting matrix represents the greyscaled image, where each element corresponds to the averaged intensity value of the corresponding pixel in the original image. Linear algebra provides a concise and efficient way to perform this calculation, simplifying the greyscaling process in photo editing software.
     </p>

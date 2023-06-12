@@ -44,7 +44,7 @@ function remove()
 
 function showParagraph(id) {
     const paragraph = document.getElementById(id);
-    paragraph.style.display = "flex";
+    paragraph.style.display = "block";
 }
 
 function hideAllParagraphs() {
@@ -87,6 +87,7 @@ function applyFilter(filter){
             break;
         case "remove":
             remove();
+            showParagraph("all-text");
             break;
         default:
             hideAllParagraphs();

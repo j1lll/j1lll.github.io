@@ -47,6 +47,10 @@ body {
   padding: 5%;
 }
 
+i {
+  font-size: 12px;
+}
+
 #tools {
   display: flex;
   flex-direction: column;
