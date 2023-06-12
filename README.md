@@ -18,9 +18,10 @@ Photo editing and photo storage is directly linked to linear algebra since image
 - this is an example of performing a permutation operation on the color vectors since the colors' corresponding rows are being swapped around
 
 ### Crumble
+- crumble utilizes matrix addition to effectively add a 'noise matrix' to each RGB value of each pixel of the image (conceptually, another matrix)
 
-## Help
-
+### Blur
+-  the blur filter applies a convolution operation using a box blur matrix to compute the weighted sum of neighboring pixels, editing the image to have the blurred effect
 
 
 ## License
